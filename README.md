@@ -50,7 +50,7 @@ Das geht nur in lokalem Kontext mit Initialisierung!
 * java.util.Map.copyOf( aMap )
 * java.util.Set.copyOf( aSet )
 
-
+#### Beipsiele
     List<Integer> list = Arrays.asList(1, 2, 3);
     List copy = List.copyOf(list);
     assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(
@@ -67,6 +67,7 @@ Das geht nur in lokalem Kontext mit Initialisierung!
 * toUnmodifiableMap();
 * toUnmodifiableSet();
 
+#### Beipsiele
     List<Integer> evenNumbers = asList(1, 2, 3, 4).stream()
         .filter(i -> i % 2 == 0)
         .collect(toUnmodifiableList());
