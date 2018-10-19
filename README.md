@@ -41,3 +41,40 @@ Das geht nur in lokalem Kontext mit Initialisierung!
         System.out.println(var);
     }
     
+    
+## Unmodifiable Collections
+
+ * copyOf()
+ * toUnmodifiable*()
+
+### copyOf
+* java.util.List.copyOf( aList )
+* java.util.Map.copyOf( aMap )
+* java.util.Set.copyOf( aSet )
+ 
+    List<Integer> list = Arrays.asList(1, 2, 3);
+    List copy = List.copyOf(list);
+    assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(
+        () -> copy.add(4)
+    );
+    assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(
+        () -> copy.remove(3)
+    );
+
+### toUnmodifiable*()
+
+* java.util.stream.Collectors.
+* toUnmodifiableList();
+* toUnmodifiableMap();
+* toUnmodifiableSet();
+
+    List<Integer> evenNumbers = asList(1, 2, 3, 4).stream()
+        .filter(i -> i % 2 == 0)
+        .collect(toUnmodifiableList());
+    assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(
+        () -> evenNumbers.add(5)
+    );
+    assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(
+        () -> evenNumbers.remove(2)
+    );
+    
