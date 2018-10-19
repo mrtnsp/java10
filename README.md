@@ -85,15 +85,21 @@ Das geht nur in lokalem Kontext mit Initialisierung!
 ... same as Optional*.get()
 
     assertThat(asList(1, 2, 3, 4).stream()
-        .filter(i -> i % 2 == 0).findFirst().orElseThrow()
+        .filter(i -> i % 2 == 0)
+        .findFirst()
+        .orElseThrow()
     ).isEqualTo(2);
     
     assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(
         () -> asList(1, 3, 5).stream()
-        .filter(i -> i % 2 == 0).findFirst().orElseThrow()
+        .filter(i -> i % 2 == 0)
+        .findFirst()
+        .orElseThrow()
     );
     
     assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(
         () -> asList(1, 3, 5).stream()
-        .filter(i -> i % 2 == 0).findFirst().get()
+        .filter(i -> i % 2 == 0)
+        .findFirst()
+        .get()
     );
