@@ -44,15 +44,13 @@ Das geht nur in lokalem Kontext mit Initialisierung!
     
 ## Unmodifiable Collections
 
- * copyOf()
- * toUnmodifiable*()
-
 ### copyOf
+
 * java.util.List.copyOf( aList )
 * java.util.Map.copyOf( aMap )
 * java.util.Set.copyOf( aSet )
 
- 
+
     List<Integer> list = Arrays.asList(1, 2, 3);
     List copy = List.copyOf(list);
     assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(
@@ -68,8 +66,6 @@ Das geht nur in lokalem Kontext mit Initialisierung!
 * toUnmodifiableList();
 * toUnmodifiableMap();
 * toUnmodifiableSet();
- 
-
 
     List<Integer> evenNumbers = asList(1, 2, 3, 4).stream()
         .filter(i -> i % 2 == 0)
