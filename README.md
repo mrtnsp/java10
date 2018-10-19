@@ -78,3 +78,22 @@ Das geht nur in lokalem Kontext mit Initialisierung!
         () -> evenNumbers.remove(2)
     );
     
+    
+    
+    
+## Optional*.orElseThrow()
+... same as Optional*.get()
+
+    assertThat(asList(1, 2, 3, 4).stream()
+        .filter(i -> i % 2 == 0).findFirst().orElseThrow()
+    ).isEqualTo(2);
+    
+    assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(
+        () -> asList(1, 3, 5).stream()
+        .filter(i -> i % 2 == 0).findFirst().orElseThrow()
+    );
+    
+    assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(
+        () -> asList(1, 3, 5).stream()
+        .filter(i -> i % 2 == 0).findFirst().get()
+    );
